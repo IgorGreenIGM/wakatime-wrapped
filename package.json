@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": ".",
+  "homepage": "https://IgorGreenIGM.github.io/wakatime-wrapped/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
