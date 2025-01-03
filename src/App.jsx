@@ -14,7 +14,6 @@ const App = () => {
   return (
     <>
       <Router>
-        <div className="absolute">
           <ParticlesBackground />
           <Navbar />
           <Routes>
@@ -22,7 +21,6 @@ const App = () => {
             <Route path="/stats" element={<StatsPage />} />
             <Route path='/callback' element={<Callback />} />
           </Routes>
-        </div>
       </Router>
     </>
   );
