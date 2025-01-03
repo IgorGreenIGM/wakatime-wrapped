@@ -45,12 +45,14 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
+    margin-top: 40px;
 }
 
 .stats-header {
     font-size: clamp(1.2rem, 3vw, 1.5rem);
     color: var(--accent-color);
     margin-bottom: 0px;
+    margin-top: -10px;
 }
 
 .stat-container {
