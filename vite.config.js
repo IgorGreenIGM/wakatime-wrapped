@@ -12,5 +12,5 @@ export default defineConfig({
       '@utils': path.resolve(__dirname, './src/utils')
     }
   },
-  // base: "/wakatime-wrapped/"
+  base: "/wakatime-wrapped/"
 })
