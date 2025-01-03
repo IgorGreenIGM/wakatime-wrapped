@@ -91,7 +91,7 @@ const HeroSection = () => {
                 button.textContent = 'Loading...';
             }
             
-            fetchAuthorizationUrl().then(response => {
+            fetchAuthorizationUrl().then((response) => {
                 console.error('the content will follow : ', response);
                 window.location.href = response;
             }).catch(error => {
