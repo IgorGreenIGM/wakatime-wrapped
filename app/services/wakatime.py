@@ -1,6 +1,5 @@
 import os
 import requests
-from datetime import date
 
 from app.utils.adders import *
 from app.utils.statistics import *

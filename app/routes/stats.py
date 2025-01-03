@@ -1,6 +1,5 @@
 import io
 import os
-import sys
 from http import HTTPStatus
 from flask import Blueprint, jsonify, current_app, request, send_file
 

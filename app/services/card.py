@@ -1,9 +1,5 @@
-from PIL import Image, ImageDraw, ImageFont, ImageOps
-import numpy as np
-import datetime
-import os
 import math
-import random
+from PIL import Image, ImageDraw, ImageFont, ImageOps
 
 # Constants remain the same
 WIDTH = 1920

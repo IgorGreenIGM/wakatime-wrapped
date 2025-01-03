@@ -6,7 +6,7 @@ from app.routes.auth import auth_bp
 from app.routes.stats import stats_bp
 
 def create_app():
-    load_dotenv()
+    load_dotenv
     app = Flask(__name__)
     CORS(app, supports_credentials=True, resources={
         r"/*": {
