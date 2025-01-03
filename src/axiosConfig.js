@@ -2,7 +2,7 @@
 import axios from 'axios';
 
 const instance = axios.create({
-  baseURL: 'http://127.0.0.1:5000/',
+  baseURL: 'wakatime-wrapped.up.railway.app/',
   withCredentials: true, // Ensure cookies/session data are sent
 });
 
