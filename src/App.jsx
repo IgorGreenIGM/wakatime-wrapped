@@ -16,7 +16,6 @@ const App = () => {
       <Router>
           <ParticlesBackground />
           <Navbar />
-          <MainPage />
           <Routes>
             <Route path="/" element={<MainPage />} />
             <Route path="/stats" element={<StatsPage />} />

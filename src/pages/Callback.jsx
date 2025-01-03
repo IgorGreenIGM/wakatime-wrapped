@@ -91,6 +91,7 @@ const Callback = () => {
       });
 
     } else {
+      window.alert('Error: No authorization code found.');
       window.location.href = '/';
     }
   }, []);

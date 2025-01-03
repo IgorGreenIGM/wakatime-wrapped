@@ -57,7 +57,9 @@ const StatsPage = () => {
       })
       .catch((err) => {
         console.error(err);
+        window.alert("error when fetching backend data, please try again later");
         setIsLoading(false);
+        window.location.href = '/';
       });
   }, []);
 
