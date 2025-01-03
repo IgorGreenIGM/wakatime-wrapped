@@ -1,7 +1,7 @@
 import React from 'react';
-import HeroSection from '../components/HeroSection/HeroSection';
-import StatsPreview from '../components/StatsPreview/StatsPreview';
-import Footer from '../components/Footer/Footer';
+import HeroSection from './../components/HeroSection/HeroSection';
+import StatsPreview from './../components/StatsPreview/StatsPreview';
+import Footer from './../components/Footer/Footer';
 
 const MainPage = () => {
   return (
