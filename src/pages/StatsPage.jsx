@@ -33,7 +33,7 @@ const StatsPage = () => {
             fontWeight: 'bold',
           }}
           onClick={() => {
-            window.location.href = '/';
+            window.location.pathname = '/';
           }}
         >
           Back to Main Page
@@ -42,7 +42,7 @@ const StatsPage = () => {
           <h1 style={{color: 'white', marginTop: '20px', textAlign:'center'}}>You need to grant acess to your wakatime<br></br> account to fetch statistics</h1>
         </div>
         <div>
-          <h1 style={{color: 'white', fontSize:'20px', marginTop: '20px', textAlign:'center'}}>GO back to the main page and click "View Your Stats" Button</h1>
+          <h1 style={{color: 'white', fontSize:'20px', marginTop: '20px', textAlign:'center'}}>Go back to the main page and click "View Your Stats" Button</h1>
         </div>
       </div>
     );
