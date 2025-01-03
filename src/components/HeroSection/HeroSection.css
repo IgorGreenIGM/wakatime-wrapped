@@ -14,7 +14,7 @@
 }
 
 .hero-content h1 {
-    font-size: 6rem;
+    font-size: clamp(2.5rem, 8vw, 6rem);
     background: linear-gradient(90deg, var(--accent-color), var(--accent-light-color));
     background-clip: text;
     -webkit-background-clip: text;
@@ -27,7 +27,7 @@
 
 .hero-content h2 {
     color: var(--white);
-    font-size: 2.5rem;
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
     margin: 20px 0;
     opacity: 0.85;
     text-align: left;
@@ -39,7 +39,7 @@
     background: var(--overlay-color);
     border-radius: 10px;
     border: 1px solid var(--card-border-color);
-    padding: 30px;
+    padding: clamp(15px, 3vw, 30px);
     position: relative;
     overflow: hidden;
     display: flex;
@@ -48,7 +48,7 @@
 }
 
 .stats-header {
-    font-size: 1.5rem;
+    font-size: clamp(1.2rem, 3vw, 1.5rem);
     color: var(--accent-color);
     margin-bottom: 0px;
 }
@@ -56,16 +56,16 @@
 .stat-container {
     background: rgba(0, 149, 255, 0.1);
     border-radius: 8px;
-    padding: 20px;
-    padding-bottom: 30px;
+    padding: clamp(10px, 2vw, 20px);
+    padding-bottom: clamp(15px, 3vw, 30px);
     margin-bottom: 15px;
 }
 
 .language-chart {
-    height: 200px;
+    height: clamp(150px, 30vh, 200px);
     display: flex;
     align-items: flex-end;
-    gap: 15px;
+    gap: clamp(8px, 2vw, 15px);
     margin-top: 20px;
 }
 
@@ -74,7 +74,7 @@
     background: linear-gradient(180deg, var(--accent-color), var(--accent-light-color));
     border-radius: 4px 4px 0 0;
     position: relative;
-    min-width: 40px;
+    min-width: clamp(30px, 5vw, 40px);
 }
 
 .lang-label {
@@ -82,7 +82,7 @@
     bottom: -25px;
     left: 50%;
     transform: translateX(-50%);
-    font-size: 0.8rem;
+    font-size: clamp(0.7rem, 1.5vw, 0.8rem);
     white-space: nowrap;
 }
 
@@ -91,41 +91,43 @@
     top: -25px;
     left: 50%;
     transform: translateX(-50%);
-    font-size: 0.8rem;
+    font-size: clamp(0.7rem, 1.5vw, 0.8rem);
     color: var(--accent-color);
 }
 
 .streak-container {
     display: flex;
     justify-content: space-between;
-    gap: 20px;
+    gap: clamp(10px, 2vw, 20px);
+    flex-wrap: wrap;
 }
 
 .streak-box {
     text-align: center;
     flex: 1;
-    padding: 15px;
+    min-width: clamp(100px, 25%, 150px);
+    padding: clamp(10px, 2vw, 15px);
     background: rgba(0, 149, 255, 0.15);
     border-radius: 8px;
 }
 
 .streak-number {
-    font-size: 2rem;
+    font-size: clamp(1.5rem, 4vw, 2rem);
     color: var(--accent-color);
     font-weight: bold;
     margin-bottom: 2px;
 }
 
 .streak-label {
-    font-size: 0.9rem;
+    font-size: clamp(0.8rem, 1.5vw, 0.9rem);
     color: var(--gray-light);
 }
 
 .cta {
     display: inline-block;
-    padding: 1rem 2rem;
+    padding: clamp(0.8rem, 2vw, 1rem) clamp(1.5rem, 3vw, 2rem);
     margin-top: 30px;
-    font-size: 1.2rem;
+    font-size: clamp(1rem, 2vw, 1.2rem);
     color: var(--white);
     background: linear-gradient(90deg, var(--accent-color), var(--accent-light-color));
     border: none;
@@ -133,6 +135,8 @@
     cursor: pointer;
     box-shadow: 0 4px 12px var(--box-shadow-color);
     transition: transform 0.4s, box-shadow 0.4s;
+    width: auto;
+    max-width: 100%;
 }
 
 .cta:hover {
@@ -140,23 +144,35 @@
     box-shadow: 0 6px 18px var(--hover-shadow-color);
 }
 
-@media (max-width: 768px) {
+/* Tablet Breakpoint */
+@media (max-width: 1024px) {
     .hero-section {
-        flex-direction: column;
+        gap: 2rem;
         padding: 0 5vw;
     }
 
     .hero-content {
+        padding-right: 2rem;
+    }
+}
+
+/* Mobile Breakpoint */
+@media (max-width: 768px) {
+    .hero-section {
+        flex-direction: column;
+        padding: 0 4vw;
+        margin-top: 40px;
+        gap: 3rem;
+    }
+
+    .hero-content {
         padding-right: 0;
-        margin-bottom: 2rem;
+        text-align: center;
     }
 
-    .hero-content h1 {
-        font-size: 4rem;
-    }
-
+    .hero-content h1,
     .hero-content h2 {
-        font-size: 2rem;
+        text-align: center;
     }
 
     .hero-animation {
@@ -164,6 +180,38 @@
     }
 
     .streak-container {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .streak-box {
+        flex: 1 1 calc(50% - 10px);
+        min-width: calc(50% - 10px);
+    }
+
+    .language-chart {
+        overflow-x: auto;
+        padding-bottom: 10px;
+    }
+
+    .lang-bar {
+        min-width: 60px;
+    }
+}
+
+/* Small Mobile Breakpoint */
+@media (max-width: 480px) {
+    .hero-section {
+        padding: 0 3vw;
+        margin-top: 30px;
+    }
+
+    .streak-container {
         flex-direction: column;
+    }
+
+    .streak-box {
+        flex: 1 1 100%;
+        min-width: 100%;
     }
 }
