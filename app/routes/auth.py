@@ -9,8 +9,6 @@ redirect_uri = 'https://wakatime-wrapped.vercel.app/callback'
 
 @auth_bp.route("/authorize_url", methods=['GET'])
 def auth_wakatime():
-    print(client_id)
-    print(client_secret)
     return f"https://wakatime.com/oauth/authorize?client_id={client_id}&response_type=code&redirect_uri={redirect_uri}&scope=read_stats,read_summaries,email"
 
 @auth_bp.route("/token")
