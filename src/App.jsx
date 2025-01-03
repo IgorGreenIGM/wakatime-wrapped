@@ -17,7 +17,7 @@ const App = () => {
           <ParticlesBackground />
           <Navbar />
           <Routes>
-            <Route path="/" element={<StatsPage />} />
+            <Route path="/" element={<MainPage />} />
             <Route path="/stats" element={<StatsPage />} />
             <Route path='/callback' element={<Callback />} />
           </Routes>
