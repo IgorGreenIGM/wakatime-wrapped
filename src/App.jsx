@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-import Navbar from './components/Navbar/Navbar';
+import Navbar from './components/NavBar/Navbar';
 import MainPage from './pages/MainPage';
 import StatsPage from './pages/StatsPage';
 import Callback from './pages/Callback'
