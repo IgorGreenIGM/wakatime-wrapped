@@ -6,7 +6,7 @@ from app.routes.auth import auth_bp
 from app.routes.stats import stats_bp
 
 def create_app():
-    load_dotenv
+    load_dotenv()
     app = Flask(__name__)
     CORS(app, supports_credentials=True, resources={
         r"/*": {
@@ -25,4 +25,4 @@ def create_app():
 
 if __name__ == "__main__":
     app = create_app()
-    app.run(debug=True, port=5000)
+    app.run(port=5000)
