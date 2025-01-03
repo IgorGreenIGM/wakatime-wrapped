@@ -10,19 +10,14 @@ import ParticlesBackground from './components/ParticlesBackground/ParticlesBackg
 import './styles/global.css';
 
 const App = () => {
-  
   return (
-    <>
-      <Router>
-          <ParticlesBackground />
-          <Navbar />
-          <Routes>
-            <Route path="/" element={<MainPage />} />
-            <Route path="/stats" element={<StatsPage />} />
-            <Route path='/callback' element={<Callback />} />
-          </Routes>
-      </Router>
-    </>
+    <Router>
+      <Routes>
+        <Route path="/" element={<MainPage />} />
+        <Route path="/stats" element={<StatsPage />} />
+        <Route path="/callback" element={<Callback />} />
+      </Routes>
+    </Router>
   );
 };
 
