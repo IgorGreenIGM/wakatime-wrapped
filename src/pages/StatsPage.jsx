@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Player } from '@remotion/player';
 import { FaDownload, FaGithub } from 'react-icons/fa';
 import { fetchUserData, fetchCard } from '../services/Api';
+import Footer from '../components/Footer/Footer';
 import WakatimeWrapped from '../components/Wrapped/WakatimeWrapped';
 
 const StatsPage = () => {
@@ -169,165 +170,170 @@ const StatsPage = () => {
 
   // Main container that's shown while loading or with content
   return (
-    <div
-      style={{
-        margin: '0 auto',
-        marginTop: isMobile ? '200px' : '100px',
-        width: isMobile ? '68%' : '60%',
-        height: isMobile ? '540px' : '560px',
-        border: "1px solid var(--accent-color)",
-        borderRadius: `${borderRadius}px`,
-        display: 'flex',
-        flexDirection: 'column',
-        position: 'relative',
-        background: 'rgba(0, 0, 0, 0.8)',
-      }}
-    >
-      {isLoading ? (
-        <LoadingAnimation />
-      ) : (
-        <>
-          {/* Profile Section */}
-          <div
-            style={{
-              background: 'var(--accent-color)',
-              padding: '8px 10px',
-              borderRadius: `${borderRadius}px ${borderRadius}px 0 0`,
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'space-between',
-              boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)',
-            }}
-          >
+    <div>
+      <div
+        style={{
+          margin: '0 auto',
+          marginTop: isMobile ? '200px' : '100px',
+          width: isMobile ? '68%' : '60%',
+          height: isMobile ? '540px' : '560px',
+          border: "1px solid var(--accent-color)",
+          borderRadius: `${borderRadius}px`,
+          display: 'flex',
+          flexDirection: 'column',
+          position: 'relative',
+          background: 'rgba(0, 0, 0, 0.8)',
+        }}
+      >
+        {isLoading ? (
+          <LoadingAnimation />
+        ) : (
+          <>
             {/* Profile Section */}
             <div
               style={{
+                background: 'var(--accent-color)',
+                padding: '8px 10px',
+                borderRadius: `${borderRadius}px ${borderRadius}px 0 0`,
                 display: 'flex',
                 alignItems: 'center',
-                gap: isMobile ? '5px' : '16px',
+                justifyContent: 'space-between',
+                boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)',
               }}
             >
-              <img
-                src={backendData.profile_picture_url}
-                alt="Profile"
+              {/* Profile Section */}
+              <div
                 style={{
-                  width: isMobile ? '40px' : '50px',
-                  height: isMobile ? '40px' : '50px',
-                  borderRadius: '50%',
-                  objectFit: 'cover',
-                  border: '2px solid white',
-                }}
-              />
-              <p
-                style={{
-                  color: 'white',
-                  fontWeight: 'bold',
-                  fontSize: isMobile ? '1rem' : '1.25rem',
-                  margin: 0,
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: isMobile ? '5px' : '16px',
                 }}
               >
-                {backendData.username}
-              </p>
+                <img
+                  src={backendData.profile_picture_url}
+                  alt="Profile"
+                  style={{
+                    width: isMobile ? '40px' : '50px',
+                    height: isMobile ? '40px' : '50px',
+                    borderRadius: '50%',
+                    objectFit: 'cover',
+                    border: '2px solid white',
+                  }}
+                />
+                <p
+                  style={{
+                    color: 'white',
+                    fontWeight: 'bold',
+                    fontSize: isMobile ? '1rem' : '1.25rem',
+                    margin: 0,
+                  }}
+                >
+                  {backendData.username}
+                </p>
+              </div>
+
+              {/* Action Buttons */}
+              <div
+                style={{
+                  display: 'flex',
+                  gap: isMobile ? '8px' : '12px',
+                }}
+              >
+                {/* Download Button */}
+                <button
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    backgroundColor: 'white',
+                    width: isMobile ? '35px' : '40px',
+                    height: isMobile ? '35px' : '40px',
+                    borderRadius: '50%',
+                    border: 'none',
+                    cursor: 'pointer',
+                    transition: 'all 0.3s ease',
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.backgroundColor = 'var(--accent-color)';
+                    e.currentTarget.querySelector('svg').style.color = 'white';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.backgroundColor = 'white';
+                    e.currentTarget.querySelector('svg').style.color = 'var(--accent-color)';
+                  }}
+                  onClick={() => {
+                    fetchCard(accessToken).then(() => {
+                      console.log('Downloaded!');
+                    }).catch((err) => {
+                      console.error(err);
+                      alert('Error downloading the card. Please try again later.\n'+err);
+                    });
+                  }}
+                >
+                  <FaDownload
+                    style={{
+                      width: isMobile ? '16px' : '20px',
+                      height: isMobile ? '16px' : '20px',
+                      color: 'var(--accent-color)',
+                    }}
+                  />
+                </button>
+
+                {/* Share Button */}
+                <button
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    backgroundColor: 'white',
+                    width: isMobile ? '35px' : '40px',
+                    height: isMobile ? '35px' : '40px',
+                    borderRadius: '50%',
+                    border: 'none',
+                    cursor: 'pointer',
+                    transition: 'all 0.3s ease',
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.backgroundColor = 'var(--accent-color)';
+                    e.currentTarget.querySelector('svg').style.color = 'white';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.backgroundColor = 'white';
+                    e.currentTarget.querySelector('svg').style.color = 'var(--accent-color)';
+                  }}
+
+                  onClick={() => {
+                    // open https://github.com/IgorGreenIGM
+                    window.open('https://github.com/IgorGreenIGM', '_blank').focus();
+                  }}
+                >
+                  <FaGithub
+                    style={{
+                      width: isMobile ? '16px' : '20px',
+                      height: isMobile ? '16px' : '20px',
+                      color: 'var(--accent-color)',
+                    }}
+                  />
+                </button>
+              </div>
             </div>
 
-            {/* Action Buttons */}
+            {/* Player Section */}
             <div
               style={{
+                flex: 1,
+                padding: '-100px',
                 display: 'flex',
-                gap: isMobile ? '8px' : '12px',
               }}
             >
-              {/* Download Button */}
-              <button
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  backgroundColor: 'white',
-                  width: isMobile ? '35px' : '40px',
-                  height: isMobile ? '35px' : '40px',
-                  borderRadius: '50%',
-                  border: 'none',
-                  cursor: 'pointer',
-                  transition: 'all 0.3s ease',
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.backgroundColor = 'var(--accent-color)';
-                  e.currentTarget.querySelector('svg').style.color = 'white';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.backgroundColor = 'white';
-                  e.currentTarget.querySelector('svg').style.color = 'var(--accent-color)';
-                }}
-                onClick={() => {
-                  fetchCard(accessToken).then(() => {
-                    console.log('Downloaded!');
-                  }).catch((err) => {
-                    console.error(err);
-                    alert('Error downloading the card. Please try again later.\n'+err);
-                  });
-                }}
-              >
-                <FaDownload
-                  style={{
-                    width: isMobile ? '16px' : '20px',
-                    height: isMobile ? '16px' : '20px',
-                    color: 'var(--accent-color)',
-                  }}
-                />
-              </button>
-
-              {/* Share Button */}
-              <button
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  backgroundColor: 'white',
-                  width: isMobile ? '35px' : '40px',
-                  height: isMobile ? '35px' : '40px',
-                  borderRadius: '50%',
-                  border: 'none',
-                  cursor: 'pointer',
-                  transition: 'all 0.3s ease',
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.backgroundColor = 'var(--accent-color)';
-                  e.currentTarget.querySelector('svg').style.color = 'white';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.backgroundColor = 'white';
-                  e.currentTarget.querySelector('svg').style.color = 'var(--accent-color)';
-                }}
-
-                onClick={() => {
-                  // open https://github.com/IgorGreenIGM
-                  window.open('https://github.com/IgorGreenIGM', '_blank').focus();
-                }}
-              >
-                <FaGithub
-                  style={{
-                    width: isMobile ? '16px' : '20px',
-                    height: isMobile ? '16px' : '20px',
-                    color: 'var(--accent-color)',
-                  }}
-                />
-              </button>
+              <PlayerWrapper />
             </div>
-          </div>
-
-          {/* Player Section */}
-          <div
-            style={{
-              flex: 1,
-              padding: '-100px',
-              display: 'flex',
-            }}
-          >
-            <PlayerWrapper />
-          </div>
-        </>
-      )}
+          </>
+        )}
+      </div>
+      <div style={{marginTop:'80px'}}>
+        <Footer />
+      </div>
     </div>
   );
 };
