@@ -33,7 +33,7 @@ const StatsPage = () => {
             fontWeight: 'bold',
           }}
           onClick={() => {
-            window.location.pathname = '/';
+            window.location.href = '/';
           }}
         >
           Back to Main Page
