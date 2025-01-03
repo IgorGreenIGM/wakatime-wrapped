@@ -78,7 +78,7 @@ const HeroSection = () => {
       };
     }, []);
     
-    const handleButtonClick = async () => {
+    const handleButtonClick = () => {
         if (localStorage.getItem('wakatime-access-token')) {
             window.location.href = '/stats';
             return true;
@@ -90,11 +90,14 @@ const HeroSection = () => {
                 button.disabled = true;
                 button.textContent = 'Loading...';
             }
-
-            const response = await fetchAuthorizationUrl();
-            console.error('the content will follow : ', response);
             
-            window.location.href = response;
+            fetchAuthorizationUrl().then(response => {
+                console.error('the content will follow : ', response);
+                window.location.href = response;
+            }).catch(error => {
+                console.error('Failed to fetch authorization URL:', error);
+                alert('Failed to connect to WakaTime. Please try again later.');
+            });            
         } catch (error) {
             const button = document.getElementById('cta-btn');
             if (button) {
