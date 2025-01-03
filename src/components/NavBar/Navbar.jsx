@@ -16,7 +16,7 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <a className="navbar-left" style={{textDecoration:'none'}} href='/'>
-        <img src="/wakatime-white-logo.svg" className="logo"/>
+        <img src="../../public/wakatime-white-logo.svg" className="logo"/>
         <div style={{color:'white'}}>WakaTime Wrapped</div>
       </a>
       <div className="navbar-right">
