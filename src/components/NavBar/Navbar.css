@@ -4,7 +4,7 @@
     left: 0;
     right: 0;
     background: var(--primary-bg-color);
-    padding: 0.5rem 6rem;
+    padding: clamp(0.5rem, 2vw, 1rem) clamp(1rem, 4vw, 6rem);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -27,32 +27,27 @@
 .navbar-left {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: clamp(10px, 2vw, 20px);
 }
 
 .navbar-left div {
-    font-size: 1.25rem;
+    font-size: clamp(1rem, 1.5vw, 1.25rem);
     font-weight: bold;
 }
-
-@media (max-width: 768px) {
-    .navbar-left div {
-      font-size: 1rem;
-    }
-  }
 
 .navbar-right {
     display: flex;
     align-items: center;
-    gap: 40px;
+    gap: clamp(15px, 3vw, 40px);
 }
 
 .navbar-right a {
     color: var(--accent-color);
     text-decoration: none;
-    font-size: 1.1rem;
+    font-size: clamp(0.9rem, 1.2vw, 1.1rem);
     transition: color 0.3s;
     position: relative;
+    white-space: nowrap;
 }
 
 .navbar-right a::after {
@@ -76,9 +71,11 @@
 
 .logo {
     text-decoration: none;
-    width: 40px;
+    width: clamp(30px, 5vw, 40px);
     height: auto;
     transition: color 0.3s;
+    display: flex;
+    align-items: center;
 }
 
 .logo:hover {
@@ -88,14 +85,16 @@
 .source-link {
     display: flex;
     align-items: center;
-    font-size: 18px;
+    font-size: clamp(0.9rem, 1.2vw, 1.1rem);
     color: var(--accent-color);
     text-decoration: none;
     transition: color 0.3s ease;
+    gap: 5px;
 }
 
 .source-link svg {
-    margin-right: 5px;
+    width: clamp(16px, 2vw, 20px);
+    height: auto;
 }
 
 .source-link:hover {
@@ -105,8 +104,9 @@
 .theme-switch {
     position: relative;
     display: inline-block;
-    width: 40px;
-    height: 20px;
+    width: clamp(35px, 5vw, 40px);
+    height: clamp(18px, 2.5vw, 20px);
+    flex-shrink: 0;
 }
 
 .theme-switch input {
@@ -130,8 +130,8 @@
     position: absolute;
     top: 3px;
     left: 3px;
-    width: 14px;
-    height: 14px;
+    width: calc(100% - 6px - 20px);
+    height: calc(100% - 6px);
     background-color: var(--primary-bg-color);
     border-radius: 50%;
     transition: transform 0.3s ease, background-color 0.3s ease;
@@ -146,8 +146,105 @@ input:checked + .switch::before {
     background-color: var(--primary-text-color);
 }
 
+/* Tablet Breakpoint */
+@media (max-width: 1024px) {
+    .navbar {
+        padding: 0.75rem 3rem;
+    }
+    
+    .navbar-right {
+        gap: 20px;
+    }
+}
+
+/* Mobile Breakpoint */
 @media (max-width: 768px) {
     .navbar {
-        padding: 1rem 2rem;
+        padding: 0.5rem 1rem;
+    }
+
+    .navbar-right {
+        gap: 15px;
+    }
+
+    /* Hide text labels on mobile if needed */
+    .navbar-right a span {
+        display: none;
+    }
+
+    .source-link span {
+        display: none;
+    }
+
+    /* Keep only icons visible */
+    .source-link svg {
+        margin-right: 0;
+    }
+}
+
+/* Small Mobile Breakpoint */
+@media (max-width: 480px) {
+    .navbar {
+        padding: 0.5rem;
+    }
+    
+    .navbar-left div {
+        font-size: 0.9rem;
+    }
+    
+    .navbar-right {
+        gap: 10px;
+    }
+    
+    .theme-switch {
+        width: 32px;
+        height: 16px;
+    }
+    
+    .switch::before {
+        width: 10px;
+        height: 10px;
+    }
+    
+    input:checked + .switch::before {
+        transform: translateX(16px);
+    }
+}
+
+/* Optional: Navigation Menu for Mobile */
+@media (max-width: 768px) {
+    .mobile-menu-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 30px;
+        height: 30px;
+        background: none;
+        border: none;
+        color: var(--accent-color);
+        cursor: pointer;
+    }
+
+    .navbar-right.mobile {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        background: var(--primary-bg-color);
+        padding: 1rem;
+        gap: 1rem;
+        border-bottom: 1px solid var(--border-color);
+        display: none;
+    }
+
+    .navbar-right.mobile.active {
+        display: flex;
+    }
+
+    /* Show text labels when menu is open */
+    .navbar-right.mobile a span,
+    .navbar-right.mobile .source-link span {
+        display: inline;
     }
 }
