@@ -103,7 +103,7 @@ export const buildDevelopmentToolsData = (data) => {
   if (totalPercent < 100) {
     top_editors.push({
       name: 'Other',
-      hours: Math.round(data.total_time / 3600) - totalHours,
+      hours: Math.round(data.year_on_year_comp.current_year_total / 3600) - totalHours,
       color: '#808080',
       category: 'Editor',
       percentage: parseFloat(100 - totalPercent).toFixed(2)
