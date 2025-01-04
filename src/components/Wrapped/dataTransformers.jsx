@@ -90,23 +90,46 @@ export const buildNewProjectsData = (data, getIconComponent) => {
 
 
 export const buildDevelopmentToolsData = (data) => {
-  return data.top_editors.map(editor => ({
+  let top_editors = data.top_editors.map(editor => ({
     name: editor.name,
     hours: Math.round(editor.total_seconds / 3600),
     color: editor.color || '#808080',
     category: 'Editor',
     percentage: editor.percent
   }));
+
+  const totalPercent = top_editors.reduce((acc, editor) => acc + editor.percentage, 0);
+  if (totalPercent < 100) {
+    top_editors.push({
+      name: 'Other',
+      hours: 0,
+      color: '#808080',
+      category: 'Editor',
+      percentage: parseFloat(100 - totalPercent).toFixed(2)
+    });
+  }
+  return top_editors;
 };
 
 export const buildEnvironmentsData = (data) => {
-  return data.top_os.map(os => ({
+  let top_os = data.top_os.map(os => ({
     name: os.name,
     percentage: os.percent,
     color: os.name === 'Windows' ? '#00A4EF' : 
             os.name === 'Linux' ? '#E95420' : '#999999',
     category: 'OS'
   }));
+
+  const totalPercent = top_os.reduce((acc, os) => acc + os.percentage, 0)
+  if (totalPercent < 100) {
+    top_os.push({
+      name: 'Other',
+      percentage: parseFloat(100 - totalPercent).toFixed(2),
+      color: '#808080',
+      category: 'OS'
+    });
+  }
+  return top_os;
 };
 
 export const buildUserProfileData = (data) => {
