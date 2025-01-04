@@ -99,10 +99,11 @@ export const buildDevelopmentToolsData = (data) => {
   }));
 
   const totalPercent = top_editors.reduce((acc, editor) => acc + editor.percentage, 0);
+  const totalHours = top_editors.reduce((acc, editor) => acc + editor.hours, 0);
   if (totalPercent < 100) {
     top_editors.push({
       name: 'Other',
-      hours: 0,
+      hours: Math.round(data.total_time / 3600) - totalHours,
       color: '#808080',
       category: 'Editor',
       percentage: parseFloat(100 - totalPercent).toFixed(2)
@@ -120,7 +121,7 @@ export const buildEnvironmentsData = (data) => {
     category: 'OS'
   }));
 
-  const totalPercent = top_os.reduce((acc, os) => acc + os.percentage, 0)
+  const totalPercent = top_os.reduce((acc, os) => acc + os.percentage, 0);
   if (totalPercent < 100) {
     top_os.push({
       name: 'Other',
