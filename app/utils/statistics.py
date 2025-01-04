@@ -140,9 +140,10 @@ def get_milestones(daily_stats: List, total_time: float):
     return achieved_milestones
 
 def get_year_on_year_comp(this_year_datas: Dict, last_year_datas: Dict):
+    last_year_seconds = (this_year_datas['total_seconds'] if not last_year_datas['total_seconds'] else last_year_datas['total_seconds'])
     return {
-            'ratio':this_year_datas['total_seconds']/last_year_datas['total_seconds'],
-            'percent':((this_year_datas['total_seconds']- last_year_datas['total_seconds']))*100/last_year_datas['total_seconds'],
+            'ratio':this_year_datas['total_seconds']/last_year_seconds,
+            'percent':((this_year_datas['total_seconds']- last_year_datas['total_seconds']))*100/last_year_seconds,
             'current_year_total':this_year_datas['total_seconds'],
             'last_year_datas':last_year_datas['total_seconds'],
             }

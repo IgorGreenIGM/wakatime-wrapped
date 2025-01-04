@@ -4,6 +4,7 @@ from flask_cors import CORS
 from dotenv import load_dotenv
 from app.routes.auth import auth_bp
 from app.routes.stats import stats_bp
+from app.services.wakatime import Wakatime
 
 def create_app():
     load_dotenv()

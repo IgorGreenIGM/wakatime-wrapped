@@ -1,4 +1,5 @@
 import math
+import datetime
 from PIL import Image, ImageDraw, ImageFont, ImageOps
 
 # Constants remain the same
@@ -138,7 +139,7 @@ def draw_vertical_band_chart(draw, data, x, y, width, height, title, items):
     # Draw left-aligned legends
     for i, item in enumerate(left_items):
         legend_x = x
-        current_legend_y = legend_y + i * legend_spacing
+        current_legend_y = legend_y + i*20 + i * legend_spacing
         
         color = colors[item['name']]
         if isinstance(color, str):
@@ -160,7 +161,7 @@ def draw_vertical_band_chart(draw, data, x, y, width, height, title, items):
         text_width = draw.textlength(text, font=font_regular)
         
         legend_x = x + width - text_width - square_size - 10
-        current_legend_y = legend_y + (0 if i==0 else 1)*20 + i * legend_spacing
+        current_legend_y = legend_y + i*20 + i * legend_spacing
         
         color = colors[item['name']]
         if isinstance(color, str):
@@ -333,3 +334,9 @@ def generate_card(data):
     bbox = ImageOps.expand(bbox, (40, 40), fill=BACKGROUND_COLOR)
     
     return bbox
+
+if __name__ == "__main__":
+    data = {'username': 'IgorGreenIGM', 'profile_picture_url': 'https://wakatime.com/photo/86ddae99-e534-418e-b63d-b835643b604e', 'best_day': {'date': '2024-03-30', 'total_seconds': 60242.594052, 'text': '16 hrs 44 mins', 'time_in_days': 0.6972522459722222}, 'total_time': '842 hrs 4 mins', 'daily_average': '3 hrs 35 mins', 'top_languages': [{'name': 'Python', 'percent': 24.76, 'total_seconds': 751478.367663, 'time': '208 hrs 44 mins', 'color': '#3572A5'}, {'name': 'Blender', 'percent': 18.3, 'total_seconds': 555514.552197, 'time': '154 hrs 18 mins'}, {'name': 'Java', 'percent': 18.17, 'total_seconds': 551563.271456, 'time': '153 hrs 12 mins', 'color': '#b07219'}, {'name': 'C++', 'percent': 11.53, 'total_seconds': 350075.489517, 'time': '97 hrs 14 mins', 'color': '#f34b7d'}, {'name': 'JavaScript', 'percent': 8.28, 'total_seconds': 251373.536329, 'time': '69 hrs 49 mins', 'color': '#f1e05a'}], 'top_projects': [{'name': 'xDD', 'percent': 14.44, 'total_seconds': 438471.356571, 'time': '121 hrs 47 mins'}, {'name': 'travel-planning', 'percent': 9.96, 'total_seconds': 302288.450785, 'time': '83 hrs 58 mins'}, {'name': 'wakatime', 'percent': 9.93, 'total_seconds': 301459.911911, 'time': '83 hrs 44 mins'}, {'name': 'Unknown Project', 'percent': 5.93, 'total_seconds': 179948.670341, 'time': '49 hrs 59 mins'}, {'name': 'DCompress', 'percent': 4.37, 'total_seconds': 132593.049999, 'time': '36 hrs 49 mins'}], 'top_editors': [{'name': 'VS Code', 'percent': 66.03, 'total_seconds': 2004223.009373, 'time': '556 hrs 43 mins', 'color': '#027acd'}, {'name': 'Blender', 'percent': 18.3, 'total_seconds': 555514.552197, 'time': '154 hrs 18 mins', 'color': '#fb8007'}, {'name': 'Blender', 'percent': 18.3, 'total_seconds': 555514.552197, 'time': '154 hrs 18 mins', 'color': '#fb8007'}, {'name': 'Blender', 'percent': 18.3, 'total_seconds': 555514.552197, 'time': '154 hrs 18 mins', 'color': '#fb8007'}, {'name': 'Blender', 'percent': 18.3, 'total_seconds': 555514.552197, 'time': '154 hrs 18 mins', 'color': '#fb8007'}, {'name': 'IntelliJ IDEA', 'percent': 15.67, 'total_seconds': 475793.658227, 'time': '132 hrs 9 mins', 'color': '#2876e1'}], 'top_os': [{'name': 'Windows', 'percent': 98.93, 'total_seconds': 3003104.914379, 'time': '834 hrs 11 mins'}, {'name': 'Linux', 'percent': 1.07, 'total_seconds': 32426.305418, 'time': '9 hrs'}], 'milestone': [{'milestone_date': datetime.date(2024, 1, 16), 'milestone_hours': 10}, {'milestone_date': datetime.date(2024, 2, 19), 'milestone_hours': 100}, {'milestone_date': datetime.date(2024, 6, 28), 'milestone_hours': 500}], 'total_days_coded': 235}
+    
+    card = generate_card(data)
+    card.show()
