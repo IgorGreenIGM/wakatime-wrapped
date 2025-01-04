@@ -53,7 +53,6 @@ class Wakatime:
         daily_stats = self.__fetch_daily_stats()
         this_year_datas = self.__fetch_this_year_stats()
         last_year_datas = self.__fetch_last_year_stats()
-        print(last_year_datas)
         programming_languages_datas = self.__fetch_programming_languages_datas()
         editors_datas = self.__fetch_editors_datas()
         user_infos = self.__fetch_user_infos(this_year_datas['user_id'])
