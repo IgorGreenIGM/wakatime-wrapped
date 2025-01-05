@@ -72,9 +72,9 @@ def get_video():
         return jsonify({"error": f"No ongoing progress found with id {render_id}"}), HTTPStatus.NOT_FOUND
     
     return_value = progress.copy()
-    if return_value['url']:
+    if return_value.get('url'):
         redis_client.delete(render_id)
-        
+
     return jsonify(return_value)
 
 @stats_bp.route('/video/build', methods=['POST'])
