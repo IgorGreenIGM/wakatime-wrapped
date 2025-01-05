@@ -8,7 +8,7 @@ A stunning visualization of your wakatime yearly coding stats.
 </p>
 
 <p align="center">
-[![Watch the video](https://raw.githubusercontent.com/IgorGreenIGM/repository/main/readme_res/demo_video_thumbnail.jpg)](https://raw.githubusercontent.com/IgorGreenIGM/repository/main/readme_res/demo_video.mp4)
+[![Watch the video](https://raw.githubusercontent.com/IgorGreenIGM/wakatime-wrapped/main/readme_res/demo_video_thumbnail.jpg)](https://raw.githubusercontent.com/IgorGreenIGM/wakatime-wrapped/main/readme_res/demo_video.mp4)
 </p>
 
 ## 🚀 Overview
