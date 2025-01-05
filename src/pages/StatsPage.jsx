@@ -4,11 +4,13 @@ import { FaDownload, FaGithub } from 'react-icons/fa';
 import { fetchUserData, fetchCard } from '../services/Api';
 import Footer from '../components/Footer/Footer';
 import WakatimeWrapped from '../components/Wrapped/WakatimeWrapped';
+import DownloadModal from '../components/DownloadModal/DownloadModal';
 
 const StatsPage = () => {
   const accessToken = localStorage.getItem('wakatime-access-token');
   const [backendData, setBackendDatas] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [isDownloadModalOpen, setIsDownloadModalOpen] = useState(false);
 
   if (!accessToken) {
     return (
@@ -263,14 +265,15 @@ const StatsPage = () => {
                     e.currentTarget.style.backgroundColor = 'white';
                     e.currentTarget.querySelector('svg').style.color = 'var(--accent-color)';
                   }}
-                  onClick={() => {
-                    fetchCard(accessToken).then(() => {
-                      console.log('Downloaded!');
-                    }).catch((err) => {
-                      console.error(err);
-                      alert('Error downloading the card. Please try again later.\n'+err);
-                    });
-                  }}
+                  onClick={() => setIsDownloadModalOpen(true)}
+                  // onClick={() => {
+                  //   fetchCard(accessToken).then(() => {
+                  //     console.log('Downloaded!');
+                  //   }).catch((err) => {
+                  //     console.error(err);
+                  //     alert('Error downloading the card. Please try again later.\n'+err);
+                  //   });
+                  // }}
                 >
                   <FaDownload
                     style={{
@@ -336,6 +339,17 @@ const StatsPage = () => {
       <div style={{marginTop:'80px'}}>
         <Footer />
       </div>
+      <DownloadModal 
+        isOpen={isDownloadModalOpen}
+        onClose={() => setIsDownloadModalOpen(false)}
+        onDownloadCard={() => {
+          fetchCard(accessToken).catch((err) => {
+            console.error(err);
+            alert('Error downloading the card. Please try again later.\n'+err);
+          });
+        }}
+        accessToken={accessToken}
+      />
     </div>
   );
 };

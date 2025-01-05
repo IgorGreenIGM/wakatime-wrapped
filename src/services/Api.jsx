@@ -60,3 +60,15 @@ export const fetchCard = async (token) => {
     throw error;
   }
 };
+
+export const buildVideo = async (orientation, backendDatas) => {
+  try {
+    const response = await axios.post('/video/build',
+      orientation === 'vertical' ? {'isMobile':true, ...backendDatas} : {'isMobile':false, ...backendDatas}
+    );
+    return response.data;
+  } catch (error) {
+    console.error("Error when initializing connexion for fetching video :", error);
+    throw error;
+  }
+};
