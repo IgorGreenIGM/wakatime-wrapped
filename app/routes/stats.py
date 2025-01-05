@@ -79,5 +79,5 @@ def build_video():
         return jsonify({"error": 'no input props provided for rendering'}), HTTPStatus.BAD_REQUEST
 
     user_render_id = str(uuid.uuid4())
-    threading.Thread(render_video, args=(user_render_id, props, socketio, redis_client)).start()
+    threading.Thread(target=render_video, args=(user_render_id, props, socketio, redis_client)).start()
     return jsonify({"status": "started", "render_id": user_render_id})
