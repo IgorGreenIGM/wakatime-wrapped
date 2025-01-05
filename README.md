@@ -8,10 +8,7 @@ A stunning visualization of your wakatime yearly coding stats.
 </p>
 
 <p align="center">
-  <video width="640" height="100%" controls>
-    <source src="./readme_res/demo_video.mp4">
-    Your browser does not support the video tag.
-  </video>
+[![Watch the video](https://raw.githubusercontent.com/IgorGreenIGM/repository/main/readme_res/demo_video_thumbnail.jpg)](https://raw.githubusercontent.com/IgorGreenIGM/repository/main/readme_res/demo_video.mp4)
 </p>
 
 ## 🚀 Overview
