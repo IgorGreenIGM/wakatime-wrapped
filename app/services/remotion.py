@@ -28,16 +28,16 @@ def render_video(user_render_id: str, input_props: Dict, redis_client: redis.Str
 
     render_response = client.render_media_on_lambda(render_params)
     if render_response:
-        redis_client.set(user_render_id, {'state':0, 'url':''})
+        redis_client.hmset(user_render_id, {'state':0, 'url':''})
 
         progress_response = client.get_render_progress(
             render_id=render_response.render_id, bucket_name=render_response.bucket_name)
         while progress_response and not progress_response.done:
-            redis_client.set(user_render_id, {'state':progress_response.overallProgress * 100, 'url':''})
+            redis_client.hmset(user_render_id, {'state':progress_response.overallProgress * 100, 'url':''})
             progress_response = client.get_render_progress(
                 render_id=render_response.render_id, bucket_name=render_response.bucket_name)
             
-        redis_client.set(user_render_id, {'state':100, 'url':progress_response.outputFile})
+        redis_client.hmset(user_render_id, {'state':100, 'url':progress_response.outputFile})
     else:
         print("Render request failed")
         raise Exception("Render request failed")

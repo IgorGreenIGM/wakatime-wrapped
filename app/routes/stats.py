@@ -67,7 +67,7 @@ def get_card():
 @stats_bp.route('/video/progress', methods=['GET'])
 def get_video():
     render_id = request.args.get('renderId', '')
-    progress = redis_client.get(render_id)
+    progress = redis_client.hgetall(render_id)
     if progress is None:
         return jsonify({"error": f"No ongoing progress found with id {render_id}"}), HTTPStatus.NOT_FOUND
     
