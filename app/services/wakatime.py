@@ -79,7 +79,6 @@ class Wakatime:
         }
 
         if (not os.path.exists(f'app/cards/{self.access_token}.png')):
-            # generate and save stats card
             card = generate_card(stats)
             card.save(f'app/cards/{self.access_token}.png')
 
