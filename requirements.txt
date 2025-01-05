@@ -5,6 +5,4 @@ python-dotenv==1.0.1
 requests==2.31.0
 waitress==3.0.2
 redis==4.3.4
-Flask-SocketIO==5.5.0
-gevent==24.11.1
 remotion-lambda==4.0.244
