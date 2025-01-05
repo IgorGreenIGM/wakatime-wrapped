@@ -1,9 +1,7 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<div align="center" style="display: flex; align-items: center; justify-content: center; gap: 20px;">
+  <img src="public/wakatime-white-logo.svg" alt="WakaTime Logo" height="100">
+  <h1 style="margin: 0; font-size: 2.5em;">WakaTime Wrapped</h1>
+</div>
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-"# wakatime-wrapped" 
+*A stunning visualization of your yearly coding stats.*
