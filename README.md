@@ -7,7 +7,7 @@
 A stunning visualization of your wakatime yearly coding stats.
 </p>
 
-<p align="center">
+<p align="center" style="margin-bottom:25px">
 <img src="https://img.shields.io/badge/WakaTime-1f77b4?style=for-the-badge&logo=WakaTime&logoColor=white" alt="wakatime badge" />
 &nbsp;
 <img src="https://img.shields.io/badge/Vercel-000000?&style=for-the-badge&logo=vercel&logoColor=white" alt="vercel badge" />
@@ -19,7 +19,7 @@ A stunning visualization of your wakatime yearly coding stats.
 <img src="https://img.shields.io/badge/license-MIT-blue.svg?style=for-the-badge" alt="license" />
 </p>
 
-[![IMAGE ALT TEXT HERE](https://raw.githubusercontent.com/IgorGreenIGM/wakatime-wrapped/main/readme_res/demo_video_thumbnail.jpg)](https://www.youtube.com/watch?v=TPKBm1534kY)
+https://github.com/user-attachments/assets/1c19c722-be51-402f-b423-eb1ed0942f1f
 
 ## 🚀 Overview
 As a passionate WakaTime user, I wanted a fun way to relive my coding journey over the year—just like Spotify Wrapped does for music. That’s why I created WakaTime Wrapped, a platform to turn yearly coding stats into stunning animations, interactive displays, and shareable videos or cards.
