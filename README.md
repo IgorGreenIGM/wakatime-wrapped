@@ -19,8 +19,6 @@ A stunning visualization of your wakatime yearly coding stats.
 <img src="https://img.shields.io/badge/license-MIT-blue.svg?style=for-the-badge" alt="license" />
 </p>
 
-https://github.com/user-attachments/assets/1c19c722-be51-402f-b423-eb1ed0942f1f
-
 ## 🚀 Overview
 As a passionate WakaTime user, I wanted a fun way to relive my coding journey over the year—just like Spotify Wrapped does for music. That’s why I created WakaTime Wrapped, a platform to turn yearly coding stats into stunning animations, interactive displays, and shareable videos or cards.
 
@@ -41,6 +39,9 @@ As a passionate WakaTime user, I wanted a fun way to relive my coding journey ov
    - Highlights significant achievements and coding milestones from your year.
 
 ## 🎯 Demo
+
+### Video example
+https://github.com/user-attachments/assets/1c19c722-be51-402f-b423-eb1ed0942f1f
 
 ### Card Examples
 <p align="left">
