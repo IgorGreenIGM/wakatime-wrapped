@@ -1,5 +1,6 @@
 import os
 import redis
+import random
 from typing import Dict
 from flask_socketio import SocketIO
 from remotion_lambda import RemotionClient
@@ -34,8 +35,13 @@ def render_video(user_render_id: str, input_props: Dict, socketio: SocketIO, red
 
         progress_response = client.get_render_progress(
             render_id=render_response.render_id, bucket_name=render_response.bucket_name)
+        last_state = 0
         while progress_response and not progress_response.done:
             state = progress_response.overallProgress * 100
+            if state < last_state + random.randint(5, 10):
+                continue
+
+            last_state = state
             socketio.emit('render_progress', {"render_id":user_render_id, 'progress': state})
             redis_client.set(user_render_id, state)
             progress_response = client.get_render_progress(
