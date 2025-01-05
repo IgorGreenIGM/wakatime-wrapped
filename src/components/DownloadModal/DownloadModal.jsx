@@ -17,9 +17,9 @@ const DownloadModal = ({ isOpen, onClose, onDownloadCard, backendDatas }) => {
       const newSocket = io(baseUrl());
       setSocket(newSocket);
 
-      newSocket.on('render_progress', (data) => {
-        setProgress(data.progress);
-        console.log(data);
+      newSocket.once('render_progress', (data) => {
+        setProgress(parseFloat(data.progress).toFixed(2));
+        console.log(data.url);
         if (data.progress >= 100) {
           window.open(data.url, '_blank').focus();
           newSocket.disconnect();
