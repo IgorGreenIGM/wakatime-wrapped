@@ -7,9 +7,7 @@
 A stunning visualization of your wakatime yearly coding stats.
 </p>
 
-<p align="center">
 [![Watch the video](https://raw.githubusercontent.com/IgorGreenIGM/wakatime-wrapped/main/readme_res/demo_video_thumbnail.jpg)](https://raw.githubusercontent.com/IgorGreenIGM/wakatime-wrapped/main/readme_res/demo_video.mp4)
-</p>
 
 ## 🚀 Overview
 WakaTime is a platform I use extensively to track and visualize my coding statistics. It helps me measure my programming time, see which projects I’ve spent the most time on, and evaluate my productivity.
