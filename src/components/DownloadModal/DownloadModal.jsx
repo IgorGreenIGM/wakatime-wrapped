@@ -4,7 +4,7 @@ import { baseUrl } from '../../axiosConfig';
 import { FaMobileAlt, FaDesktop, FaTimes, FaFileImage, FaVideo, FaArrowLeft } from 'react-icons/fa';
 import { buildVideo } from '../../services/Api.jsx';
 
-const DownloadModal = ({ isOpen, onClose, onDownloadCard, backendDatas, isMobile }) => {
+const DownloadModal = ({ isOpen, onClose, onDownloadCard, backendDatas }) => {
   const [downloadType, setDownloadType] = useState(null);
   const [progress, setProgress] = useState(0);
   const [isDownloading, setIsDownloading] = useState(false);

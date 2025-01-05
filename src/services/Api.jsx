@@ -62,6 +62,7 @@ export const fetchCard = async (token) => {
 };
 
 export const buildVideo = async (orientation, backendDatas) => {
+  console.log(backendDatas);
   try {
     const response = await axios.post('/stats/video/build',
     orientation === 'vertical' ? 

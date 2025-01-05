@@ -348,7 +348,7 @@ const StatsPage = () => {
             alert('Error downloading the card. Please try again later.\n'+err);
           });
         }}
-        accessToken={accessToken}
+        backendDatas={backendData}
       />
     </div>
   );
