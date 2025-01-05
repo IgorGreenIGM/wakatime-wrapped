@@ -1,11 +1,17 @@
 import io
 import os
+import uuid
+import redis
+import threading
 from http import HTTPStatus
 from flask import Blueprint, jsonify, current_app, request, send_file
 
+from run import socketio
 from app.services.wakatime import Wakatime
+from app.services.remotion import render_video
 
 stats_bp = Blueprint("stats", __name__)
+redis_client = redis.StrictRedis(host='localhost', port=6379, db=0)
 
 @stats_bp.route("/", methods=['GET'])
 def get_stats():
@@ -51,3 +57,20 @@ def get_card():
             'error': 'Card Not Found',
             'message': 'An error occurred while accessing your statistics card'
         }), HTTPStatus.NOT_FOUND
+
+@stats_bp.route('/video/build', methods=['POST'])
+def build_video():
+    props = request.json
+    if props is None:
+        return jsonify({"error": 'no input props provided for rendering'}), HTTPStatus.BAD_REQUEST
+
+    user_render_id = str(uuid.uuid4())
+    threading.Thread(render_video, args=(user_render_id, props, socketio, redis_client)).start()
+    return jsonify({"status": "started", "render_id": user_render_id})
+
+@stats_bp.route('/video/<render_id>', methods=['GET'])
+def get_video(render_id: str):
+    progress = redis_client.get(render_id)
+    if progress is None:
+        return jsonify({"progress": "done"})
+    return jsonify({"progress": int(progress)})
