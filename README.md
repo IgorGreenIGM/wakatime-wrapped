@@ -19,10 +19,7 @@ A stunning visualization of your wakatime yearly coding stats.
 <img src="https://img.shields.io/badge/license-MIT-blue.svg?style=for-the-badge" alt="license" />
 </p>
 
-<p>
-<video src="https://raw.githubusercontent.com/IgorGreenIGM/wakatime-wrapped/main/readme_res/demo_video.mp4" poster="https://raw.githubusercontent.com/IgorGreenIGM/wakatime-wrapped/main/readme_res/demo_video_thumbnail.jpg" 
-    controls />
-</p>
+[![IMAGE ALT TEXT HERE](https://raw.githubusercontent.com/IgorGreenIGM/wakatime-wrapped/main/readme_res/demo_video_thumbnail.jpg)](https://www.youtube.com/watch?v=TPKBm1534kY)
 
 ## 🚀 Overview
 As a passionate WakaTime user, I wanted a fun way to relive my coding journey over the year—just like Spotify Wrapped does for music. That’s why I created WakaTime Wrapped, a platform to turn yearly coding stats into stunning animations, interactive displays, and shareable videos or cards.
@@ -46,8 +43,9 @@ As a passionate WakaTime user, I wanted a fun way to relive my coding journey ov
 ## 🎯 Demo
 
 ### Card Examples
-<p align="center">
-  <img src="readme_res/IgorGrennIGM.png" alt="WakaTime Card Example 1" width="100%">
+<p align="left">
+  <img src="readme_res/IgorGrennIGM.png" alt="WakaTime Card Example 1" width="49.65%">
+  <img src="readme_res/Nameless.png" alt="WakaTime Card Example 1" width="49%">
 </p>
 
 ## 📄 License
