@@ -17,7 +17,9 @@ REDIS_PASSWORD=os.getenv('REDIS_PASSWORD')
 redis_client = redis.StrictRedis(host=REDISHOST, 
                                  port=REDISPORT, 
                                  password=REDIS_PASSWORD,
-                                 db=0)
+                                 db=0,
+                                 charset="utf-8", 
+                                 decode_responses=True)
 
 @stats_bp.route("/", methods=['GET'])
 def get_stats():
@@ -67,10 +69,10 @@ def get_card():
 @stats_bp.route('/video/progress', methods=['GET'])
 def get_video():
     render_id = request.args.get('renderId', '')
-    progress = redis_client.hgetall(render_id)
-    if progress is None:
+    if not redis_client.exists(render_id) :
         return jsonify({"error": f"No ongoing progress found with id {render_id}"}), HTTPStatus.NOT_FOUND
     
+    progress = redis_client.hgetall(render_id)
     return_value = progress.copy()
     if return_value.get('url'):
         redis_client.delete(render_id)
