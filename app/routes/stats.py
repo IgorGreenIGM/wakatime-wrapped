@@ -6,7 +6,7 @@ import threading
 from http import HTTPStatus
 from flask import Blueprint, jsonify, current_app, request, send_file
 
-from run import socketio
+from main_app import socketio
 from app.services.wakatime import Wakatime
 from app.services.remotion import render_video
 
