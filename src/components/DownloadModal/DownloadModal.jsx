@@ -9,56 +9,45 @@ const DownloadModal = ({ isOpen, onClose, onDownloadCard, backendDatas, isMobile
   const [progress, setProgress] = useState(0);
   const [isDownloading, setIsDownloading] = useState(false);
   const [showVideoOptions, setShowVideoOptions] = useState(false);
+  const [socket, setSocket] = useState(null);
 
-  const simulateDownload = () => {
-    setIsDownloading(true);
-    setProgress(0);
-    
-    const interval = setInterval(() => {
-      setProgress(prev => {
-        if (prev >= 100) {
-          clearInterval(interval);
+  // Handle socket connection and events
+  useEffect(() => {
+    if (isDownloading) {
+      const newSocket = io(baseUrl());
+      setSocket(newSocket);
+
+      newSocket.on('render_progress', (data) => {
+        setProgress(data.progress);
+        console.log(data);
+        if (data.progress >= 100) {
+          window.open(data.url, '_blank').focus();
+          newSocket.disconnect();
           setIsDownloading(false);
           onClose();
-          return 0;
-        }
-        return prev + 5;
-      });
-    }, 200);
-  };
-
-  const downloadVideo = () => {
-    setIsDownloading(true);
-    setProgress(0);
-
-    const socket = io(baseUrl());
-    const disconnect = () => {socket.disconnect();};
-    useEffect(() => {
-      socket.on('render_progress', (data) => {
-        setProgress(data.progress);
-        if (data.progress >= 100)
-        {
-          window.open(data.url, '_blank').focus();
-          disconnect();
         }
       });
 
       return () => {
-        disconnect();
+        if (newSocket) {
+          newSocket.disconnect();
+        }
       };
-    }, [socket]);
-  };
+    }
+  }, [isDownloading]);
 
   const handleVideoDownload = async (orientation) => {
     setDownloadType(orientation);
+    setIsDownloading(true);
+    setProgress(0);
 
-    buildVideo(orientation, backendDatas).then((data) => {
+    try {
+      const data = await buildVideo(orientation, backendDatas);
       console.log(data);
-    }).catch((err) => {
+    } catch (err) {
+      setIsDownloading(false);
       window.alert(err);
-    });
-
-    downloadVideo();
+    }
   };
 
   const handleCardDownload = () => {
