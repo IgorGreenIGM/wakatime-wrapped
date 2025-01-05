@@ -3,86 +3,51 @@
   <h1>WakaTime Wrapped</h1>
 </div>
 
-> A stunning visualization of your yearly coding stats.
+<p align='center'>
+A stunning visualization of your wakatime yearly coding stats.
+</p>
 
-## 📋 Table of Contents
-- [Overview](#overview)
-- [Features](#features)
-- [Demo](#demo)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Technologies](#technologies)
-- [License](#license)
+<p align="center">
+  <video width="640" height="100%" controls>
+    <source src="./readme_res/main.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+</p>
 
 ## 🚀 Overview
-WakaTime Wrapped transforms your yearly coding statistics into beautiful, shareable visualizations. Inspired by Spotify Wrapped, this platform creates interactive displays and downloadable graphics that showcase your coding journey and achievements throughout the year.
+WakaTime is a platform I use extensively to track and visualize my coding statistics. It helps me measure my programming time, see which projects I’ve spent the most time on, and evaluate my productivity.
+
+While looking at my Spotify Wrapped, I thought: why not create something similar for WakaTime? A fun and visual way to recap an entire year of coding. That’s how WakaTime Wrapped was born.
+
+WakaTime Wrapped makes it easy to visualize your yearly coding stats through stunning animations and interactive displays. You can download a personalized video or a beautifully designed card that showcases your data, ready to share with friends or on social media.
+
+This was an exciting project to work on, blending creativity and technology to celebrate the unique coding journey of every developer.
 
 ## ✨ Features
-- **Annual Statistics Visualization**
-  - Comprehensive view of coding hours
-  - Project-wise breakdown
-  - Language distribution analysis
+1. **Yearly Coding Overview**  
+   - Provides a comprehensive summary of your yearly coding statistics, including total hours, languages, projects, and editors used.
 
-- **Customization Options**
-  - Dark/Light theme toggle
-  - Multiple card designs
-  - Personalized color schemes
+2. **Interactive Visualizations**  
+   - Dynamic, interactive animations that bring your coding journey to life.
 
-- **Interactive Elements**
-  - Dynamic particle animations
-  - Smooth transitions
-  - Responsive interactions
+3. **Shareable Downloadables**  
+   - Generate and download personalized video recaps or beautifully designed cards with your statistics, perfect for sharing on social media.
 
-- **Export Capabilities**
-  - High-quality PNG exports
-  - Social media-ready formats
-  - Custom resolution options
+4. **Language & Project Highlights**  
+   - See which programming languages you used the most and which projects took up most of your time.
+
+5. **Milestone Recognition**  
+   - Highlights significant achievements and coding milestones from your year.
 
 ## 🎯 Demo
 
 ### Card Examples
 <p align="center">
   <img src="readme_res/IgorGrennIGM.png" alt="WakaTime Card Example 1" width="45%">
-  <img src="readme_res/IgorGrennIGM.png" alt="WakaTime Card Example 2" width="45%">
+  <img src="readme_res/Nameless.png" alt="WakaTime Card Example 2" width="45%">
 </p>
-
-### Video Demonstration
-<p align="center">
-  <video width="640" height="360" controls>
-    <source src="./readme_res/main.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
-</p>
-
-## 🛠️ Installation
-```bash
-# Clone the repository
-git clone https://github.com/yourusername/wakatime-wrapped.git
-
-# Navigate to project directory
-cd wakatime-wrapped
-
-# Install dependencies
-npm install
-```
-
-## 📝 Usage
-```bash
-# Start development server
-npm run dev
-
-# Build for production
-npm run build
-
-# Generate static exports
-npm run export
-```
 
 ## 📄 License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
-
-<div align="center">
-  Made with ❤️ by [Your Name]
-</div>
