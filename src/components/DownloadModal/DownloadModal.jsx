@@ -1,40 +1,48 @@
-import { io } from 'socket.io-client'
 import React, { useEffect, useState } from 'react';
-import { baseUrl } from '../../axiosConfig';
 import { FaMobileAlt, FaDesktop, FaTimes, FaFileImage, FaVideo, FaArrowLeft } from 'react-icons/fa';
-import { buildVideo } from '../../services/Api.jsx';
+import { buildVideo, getBuildVideoProgression } from '../../services/Api.jsx';
 
 const DownloadModal = ({ isOpen, onClose, onDownloadCard, backendDatas }) => {
   const [downloadType, setDownloadType] = useState(null);
   const [progress, setProgress] = useState(0);
   const [isDownloading, setIsDownloading] = useState(false);
   const [showVideoOptions, setShowVideoOptions] = useState(false);
-  const [socket, setSocket] = useState(null);
+  const [renderId, setRenderId] = useState(null);
 
-  // Handle socket connection and events
+  // Handle progress polling
   useEffect(() => {
-    if (isDownloading) {
-      const newSocket = io(baseUrl());
-      setSocket(newSocket);
+    let intervalId;
 
-      newSocket.on('render_progress', (data) => {
-        setProgress(parseFloat(data.progress).toFixed(2));
-        console.log(data.url);
-        if (data.progress >= 100) {
-          window.open(data.url, '_blank').focus();
-          newSocket.disconnect();
+    if (renderId) {
+      intervalId = setInterval(async () => {
+        try {
+          const data = await getBuildVideoProgression(renderId);
+          
+          if (data.state >= 100) {
+            window.open(data.url, '_blank').focus();
+            setProgress(100);
+            setIsDownloading(false);
+            setRenderId(null);
+            clearInterval(intervalId);
+          } else {
+            setProgress(parseFloat(data.state).toFixed(2));
+          }
+        } catch (err) {
+          window.alert(err);
           setIsDownloading(false);
-          onClose();
+          setRenderId(null);
+          clearInterval(intervalId);
         }
-      });
-
-      return () => {
-        if (newSocket) {
-          newSocket.disconnect();
-        }
-      };
+      }, 500);
     }
-  }, [isDownloading]);
+
+    // Cleanup function to clear interval when component unmounts or renderId changes
+    return () => {
+      if (intervalId) {
+        clearInterval(intervalId);
+      }
+    };
+  }, [renderId]);
 
   const handleVideoDownload = async (orientation) => {
     setDownloadType(orientation);
@@ -43,7 +51,8 @@ const DownloadModal = ({ isOpen, onClose, onDownloadCard, backendDatas }) => {
 
     try {
       const data = await buildVideo(orientation, backendDatas);
-      console.log(data);
+      setRenderId(data.render_id);
+      console.log(data.render_id);
     } catch (err) {
       setIsDownloading(false);
       window.alert(err);
@@ -369,7 +378,7 @@ const DownloadModal = ({ isOpen, onClose, onDownloadCard, backendDatas }) => {
                 marginBottom: '12px',
                 alignItems: 'center'
               }}>
-                <span>Downloading {downloadType === 'vertical' ? 'Phone' : 'PC'} Version...</span>
+                <span>Rendering {downloadType === 'vertical' ? 'Phone' : 'PC'} Version...</span>
                 <span style={{
                   background: 'rgba(255, 255, 255, 0.1)',
                   padding: '4px 8px',

@@ -75,3 +75,16 @@ export const buildVideo = async (orientation, backendDatas) => {
     throw error;
   }
 };
+
+export const getBuildVideoProgression = async (renderId) => {
+  console.log('here is the resnder id : ', renderId);
+  try {
+    const response = await axios.get('/stats/video/progress', {
+      params: { renderId }, 
+    });
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching the user datas :", error);
+    throw error;
+  }
+};
