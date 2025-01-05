@@ -43,8 +43,8 @@ This was an exciting project to work on, blending creativity and technology to c
 
 ### Card Examples
 <p align="center">
-  <img src="readme_res/IgorGrennIGM.png" alt="WakaTime Card Example 1" width="50%">
-  <img src="readme_res/Nameless.png" alt="WakaTime Card Example 2" width="50%">
+  <img src="readme_res/IgorGrennIGM.png" alt="WakaTime Card Example 1" width="47%">
+  <img src="readme_res/Nameless.png" alt="WakaTime Card Example 2" width="47%">
 </p>
 
 ## 📄 License
