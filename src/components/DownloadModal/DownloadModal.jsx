@@ -1,9 +1,7 @@
 import { io } from 'socket.io-client'
 import React, { useEffect, useState } from 'react';
-import { baseUrl } from '../../axiosConfig';
+import { baseUrl } from '../../../axiosConfig';
 import { FaMobileAlt, FaDesktop, FaTimes, FaFileImage, FaVideo, FaArrowLeft } from 'react-icons/fa';
-import { data } from 'autoprefixer';
-import axios from '../../axiosConfig.js';
 import { buildVideo } from '../../services/Api.jsx';
 
 const DownloadModal = ({ isOpen, onClose, onDownloadCard, backendDatas, isMobile }) => {
