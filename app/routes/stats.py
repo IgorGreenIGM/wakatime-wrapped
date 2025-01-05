@@ -11,7 +11,14 @@ from app.services.wakatime import Wakatime
 from app.services.remotion import render_video
 
 stats_bp = Blueprint("stats", __name__)
-redis_client = redis.StrictRedis(host='localhost', port=6379, db=0)
+
+REDISPORT=os.getenv('REDISPORT')
+REDISHOST=os.getenv('REDISHOST')
+REDIS_PASSWORD=os.getenv('REDIS_PASSWORD')
+redis_client = redis.StrictRedis(host=REDISHOST, 
+                                 port=REDISPORT, 
+                                 password=REDIS_PASSWORD,
+                                 db=0)
 
 @stats_bp.route("/", methods=['GET'])
 def get_stats():
@@ -58,6 +65,13 @@ def get_card():
             'message': 'An error occurred while accessing your statistics card'
         }), HTTPStatus.NOT_FOUND
 
+@stats_bp.route('/video/<render_id>', methods=['GET'])
+def get_video(render_id: str):
+    progress = redis_client.get(render_id)
+    if progress is None:
+        return jsonify({"progress": "done"})
+    return jsonify({"progress": int(progress)})
+
 @stats_bp.route('/video/build', methods=['POST'])
 def build_video():
     props = request.json
@@ -67,10 +81,3 @@ def build_video():
     user_render_id = str(uuid.uuid4())
     threading.Thread(render_video, args=(user_render_id, props, socketio, redis_client)).start()
     return jsonify({"status": "started", "render_id": user_render_id})
-
-@stats_bp.route('/video/<render_id>', methods=['GET'])
-def get_video(render_id: str):
-    progress = redis_client.get(render_id)
-    if progress is None:
-        return jsonify({"progress": "done"})
-    return jsonify({"progress": int(progress)})
