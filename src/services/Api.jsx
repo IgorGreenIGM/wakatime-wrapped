@@ -77,7 +77,6 @@ export const buildVideo = async (orientation, backendDatas) => {
 };
 
 export const getBuildVideoProgression = async (renderId) => {
-  console.log('here is the resnder id : ', renderId);
   try {
     const response = await axios.get('/stats/video/progress', {
       params: { renderId }, 
