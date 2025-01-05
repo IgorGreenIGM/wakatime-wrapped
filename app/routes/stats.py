@@ -65,7 +65,7 @@ def get_card():
             'message': 'An error occurred while accessing your statistics card'
         }), HTTPStatus.NOT_FOUND
 
-@stats_bp.route('/video/<render_id>', methods=['GET'])
+@stats_bp.route('/video_progress/<render_id>', methods=['GET'])
 def get_video(render_id: str):
     progress = redis_client.get(render_id)
     if progress is None:
