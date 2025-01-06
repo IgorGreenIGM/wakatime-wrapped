@@ -22,21 +22,41 @@ A stunning visualization of your wakatime yearly coding stats.
 ## 🚀 Overview
 As a passionate WakaTime user, I wanted a fun way to relive my coding journey over the year—just like Spotify Wrapped does for music. That’s why I created WakaTime Wrapped, a platform to turn yearly coding stats into stunning animations, interactive displays, and shareable videos or cards.
 
-## ✨ Features
-1. **Yearly Coding Overview**  
-   - Provides a comprehensive summary of your yearly coding statistics, including total hours, languages, projects, and editors used.
+## ✨ Features  
+<table>
+  <tr>
+    <td>
+      <strong>Yearly Coding Bests</strong><br>
+      <img src="readme_res/coding_bests.png" alt="Yearly Coding Bests" width="100%"><br>
+      Highlights your top coding moments, including the best day, most productive week, and standout achievements.
+    </td>
+    <td>
+      <strong>Productivity Insights</strong><br>
+      <img src="readme_res/productivity.png" alt="Productivity Insights" width="100%"><br>
+      Provides a detailed breakdown of your productivity trends, such as coding activity across days and hours.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <strong>Tools and OS Overview</strong><br>
+      <img src="readme_res/tools_and_os.png" alt="Tools and OS Overview" width="100%"><br>
+      Displays your most-used tools and operating systems throughout the year.
+    </td>
+    <td>
+      <strong>Top Languages</strong><br>
+      <img src="readme_res/top_languages.png" alt="Top Languages" width="100%"><br>
+      Showcases your most-used programming languages and their respective contributions to your coding journey.
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2">
+      <strong>Top Projects</strong><br>
+      <img src="readme_res/top_projects.png" alt="Top Projects" width="100%"><br>
+      Highlights your most time-intensive or impactful projects from the year.
+    </td>
+  </tr>
+</table>
 
-2. **Interactive Visualizations**  
-   - Dynamic, interactive animations that bring your coding journey to life.
-
-3. **Shareable Downloadables**  
-   - Generate and download personalized video recaps or beautifully designed cards with your statistics, perfect for sharing on social media.
-
-4. **Language & Project Highlights**  
-   - See which programming languages you used the most and which projects took up most of your time.
-
-5. **Milestone Recognition**  
-   - Highlights significant achievements and coding milestones from your year.
 
 ## 🎯 Demo
 
