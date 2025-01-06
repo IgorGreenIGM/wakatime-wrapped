@@ -35,8 +35,9 @@ const DownloadModal = ({ isOpen, onClose, onDownloadCard, backendDatas }) => {
           }
         } catch (err) {
           count += 1;
-          if (count >= 5)
+          if (count >= 10)
           {
+            await new Promise(r => setTimeout(r, 1000));
             setIsDownloading(false);
             setRenderId(null);
             clearInterval(intervalId);
