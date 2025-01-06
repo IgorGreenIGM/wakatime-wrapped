@@ -19,7 +19,12 @@ const DownloadModal = ({ isOpen, onClose, onDownloadCard, backendDatas }) => {
           const data = await getBuildVideoProgression(renderId);
           
           if (data.state >= 100) {
-            window.open(data.url, '_blank').focus();
+            const anchor = document.createElement('a');
+            anchor.href = data.url;
+            document.body.appendChild(anchor);
+            anchor.click();
+            document.body.removeChild(anchor);
+
             setProgress(100);
             setIsDownloading(false);
             setRenderId(null);
