@@ -41,9 +41,9 @@ https://github.com/user-attachments/assets/1c19c722-be51-402f-b423-eb1ed0942f1f
 
 ### Frontend  
 - **React + Vite**:  
-  Built the dynamic and interactive user interface, ensuring optimal performance and a smooth user experience.  
-- **Remotion**:  
-  Created stunning animations and video elements for the WakaTime Wrapped recap.
+  Built the user interface, and backend fetch logic. Used as container for the video player.  
+- **[Remotion](https://github.com/remotion-dev/remotion)**:  
+  THe library that made this possible : For programmatically build videos.
 
 ### Backend  
 - **Python + Flask**:  
@@ -53,9 +53,8 @@ https://github.com/user-attachments/assets/1c19c722-be51-402f-b423-eb1ed0942f1f
 
 ### Cloud Services  
 - **AWS Lambda**:  
-  Serverless functions to handle video rendering tasks efficiently, ensuring scalability and low cost.  
+  Serverless functions to handle video rendering tasks efficiently, cause Remotion doesn't supports client side rendering.  
 
-Let me know if you'd like any formatting changes or additions!
 
 ## 📄 License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
