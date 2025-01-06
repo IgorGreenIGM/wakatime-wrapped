@@ -34,6 +34,12 @@ def get_stats():
         
     except Exception as e:
         current_app.logger.error(f"Error fetching Wakatime stats: {str(e)}")
+        if (str(e).lower().strip().split()[0] == "422"):
+            return jsonify({
+                'error': 'wakatime is cooking your data, please wait few minutes and retry.',
+                'message': 'An error occurred while fetching your Wakatime statistics'
+            }), HTTPStatus.UNPROCESSABLE_ENTITY
+
         return jsonify({
             'error': 'Internal server error',
             'message': 'An error occurred while fetching your Wakatime statistics'
