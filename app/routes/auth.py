@@ -5,7 +5,7 @@ from flask import Blueprint, jsonify, request
 auth_bp = Blueprint("auth", __name__)
 client_id = os.getenv('WAKATIME_CLIENT_ID')
 client_secret = os.getenv('WAKATIME_CLIENT_SECRET')
-redirect_uri = 'https://wakatime-wrapped.vercel.app/callback'
+redirect_uri = os.getenv('WAKATIME_REDIRECT_URI')
 
 @auth_bp.route("/authorize_url", methods=['GET'])
 def auth_wakatime():
