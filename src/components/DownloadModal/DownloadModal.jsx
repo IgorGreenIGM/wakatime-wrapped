@@ -10,6 +10,7 @@ const DownloadModal = ({ isOpen, onClose, onDownloadCard, backendDatas }) => {
   const [renderId, setRenderId] = useState(null);
 
   // Handle progress polling
+  let count = 0;
   useEffect(() => {
     let intervalId;
 
@@ -33,10 +34,13 @@ const DownloadModal = ({ isOpen, onClose, onDownloadCard, backendDatas }) => {
             setProgress(parseFloat(data.state).toFixed(2));
           }
         } catch (err) {
-          window.alert(err);
-          setIsDownloading(false);
-          setRenderId(null);
-          clearInterval(intervalId);
+          count += 1;
+          if (count >= 5)
+          {
+            setIsDownloading(false);
+            setRenderId(null);
+            clearInterval(intervalId);
+          }
         }
       }, 500);
     }

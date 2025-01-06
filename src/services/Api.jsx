@@ -83,7 +83,7 @@ export const getBuildVideoProgression = async (renderId) => {
     });
     return response.data;
   } catch (error) {
-    console.error("Error fetching the user datas :", error);
+    console.error("Error fetching video progression :", error);
     throw error;
   }
 };
