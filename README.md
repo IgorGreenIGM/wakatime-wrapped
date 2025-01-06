@@ -23,39 +23,7 @@ A stunning visualization of your wakatime yearly coding stats.
 As a passionate WakaTime user, I wanted a fun way to relive my coding journey over the year—just like Spotify Wrapped does for music. That’s why I created WakaTime Wrapped, a platform to turn yearly coding stats into stunning animations, interactive displays, and shareable videos or cards.
 
 ## ✨ Features  
-<table>
-  <tr>
-    <td>
-      <strong>Yearly Coding Bests</strong><br>
-      <img src="readme_res/coding_bests.png" alt="Yearly Coding Bests" width="100%"><br>
-      Highlights your top coding moments, including the best day, most productive week, and standout achievements.
-    </td>
-    <td>
-      <strong>Productivity Insights</strong><br>
-      <img src="readme_res/productivity.png" alt="Productivity Insights" width="100%"><br>
-      Provides a detailed breakdown of your productivity trends, such as coding activity across days and hours.
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <strong>Tools and OS Overview</strong><br>
-      <img src="readme_res/tools_and_os.png" alt="Tools and OS Overview" width="100%"><br>
-      Displays your most-used tools and operating systems throughout the year.
-    </td>
-    <td>
-      <strong>Top Languages</strong><br>
-      <img src="readme_res/top_languages.png" alt="Top Languages" width="100%"><br>
-      Showcases your most-used programming languages and their respective contributions to your coding journey.
-    </td>
-  </tr>
-  <tr>
-    <td colspan="2">
-      <strong>Top Projects</strong><br>
-      <img src="readme_res/top_projects.png" alt="Top Projects" width="100%"><br>
-      Highlights your most time-intensive or impactful projects from the year.
-    </td>
-  </tr>
-</table>
+<table> <tr> <td> <strong>Yearly Coding Bests</strong><br> <img src="readme_res/coding_bests.jpg" alt="Yearly Coding Bests" width="100%"><br> Highlights your top coding moments, including the best day, most productive week, and standout achievements. </td> <td> <strong>Productivity Insights</strong><br> <img src="readme_res/productivity.jpg" alt="Productivity Insights" width="100%"><br> Provides a detailed breakdown of your productivity trends, such as coding activity across days and hours. </td> </tr> <tr> <td> <strong>Tools and OS Overview</strong><br> <img src="readme_res/tools_and_os.jpg" alt="Tools and OS Overview" width="100%"><br> Displays your most-used tools and operating systems throughout the year. </td> <td> <strong>Top Languages</strong><br> <img src="readme_res/top_languages.jpg" alt="Top Languages" width="100%"><br> Showcases your most-used programming languages and their respective contributions . </td> </tr> <tr> <td colspan="2"> <strong>Top Projects</strong><br> <img src="readme_res/top_projects.jpg" alt="Top Projects" width="100%"><br> Highlights your most time-intensive or impactful projects from the year. </td> </tr> </table>
 
 
 ## 🎯 Demo
