@@ -36,7 +36,9 @@ export const fetchUserData = async (token) => {
   } catch (error) {
     if (String(error.response.status) === "422")
     {
-      window.alert("Cannot compute your wrapped now, wakatime is still preparing your datas.\nPlease wait and try again later.");
+      window.alert("Cannot compute your wrapped now, wakatime is still preparing your datas.\n \
+      Please wait and try again later.\n \
+      If the error persists, please try on you pc web navigator.");
       window.location.href = '/'; 
     }
 
